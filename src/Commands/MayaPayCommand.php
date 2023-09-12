@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Naimsolong\MayaPay\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class MayaPayCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-mayapay-sdk';
 
     public $description = 'My command';
 
