@@ -38,7 +38,7 @@ class BasicShippingAddress implements ToArray
             'email' => $this->email,
             'shippingType' => $this->shippingType,
         ];
-
-        return array_values(array_filter(array_map('array_filter', $data)));
+        
+        return array_filter($data);
     }
 }

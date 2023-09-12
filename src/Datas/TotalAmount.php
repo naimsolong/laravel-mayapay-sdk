@@ -7,7 +7,7 @@ use Naimsolong\MayaPay\Datas\Interfaces\ToArray;
 class TotalAmount implements ToArray
 {
     public function __construct(
-        protected int $total,
+        protected int $value,
         protected string $currency,
     ) {
     }
@@ -15,7 +15,7 @@ class TotalAmount implements ToArray
     public function toArray()
     {
         return [
-            'total' => $this->total,
+            'value' => $this->value,
             'currency' => $this->currency,
         ];
     }

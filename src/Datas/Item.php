@@ -8,13 +8,12 @@ class Item implements ToArray
 {
     public function __construct(
         protected string $name,
-        protected ?int $quantity,
-        protected ?string $code,
-        protected ?string $description,
-        protected ?ItemAmount $amount,
         protected ItemTotalAmount $totalAmount,
-    ) {
-    }
+        protected null|int $quantity = null,
+        protected null|string $code = null,
+        protected null|string $description = null,
+        protected null|ItemAmount $amount = null,
+    ){}
 
     public function toArray()
     {
@@ -24,9 +23,9 @@ class Item implements ToArray
             'code' => $this->code,
             'description' => $this->description,
             'amount' => $this->amount?->toArray(),
-            'totalAmount' => $this->totalAmount,
+            'totalAmount' => $this->totalAmount->toArray(),
         ];
-
-        return array_values(array_filter(array_map('array_filter', $data)));
+        
+        return array_filter($data);
     }
 }

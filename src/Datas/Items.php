@@ -13,8 +13,11 @@ class Items implements ToArray
 
     public function toArray()
     {
-        return [
-            'items' => $this->items,
-        ];
+        $data = [];
+
+        foreach($this->items as $item)
+            array_push($data, $item->toArray());
+        
+        return $data;
     }
 }

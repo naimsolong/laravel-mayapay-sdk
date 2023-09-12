@@ -34,7 +34,7 @@ class PaymentFacilitator implements ToArray
             'state' => $this->state,
             'addressLine1' => $this->addressLine1,
         ];
-
-        return array_values(array_filter(array_map('array_filter', $data)));
+        
+        return array_filter($data);
     }
 }
