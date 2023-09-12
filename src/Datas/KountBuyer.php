@@ -28,9 +28,9 @@ class KountBuyer implements ToArray
             'birthday' => $this->birthday,
             'customerSince' => $this->customerSince,
             'sex' => $this->sex,
-            'contact' => $this->contact?->toArray(),
-            'billingAddress' => $this->billingAddress?->toArray(),
-            'shippingAddress' => $this->shippingAddress?->toArray(),
+            'contact' => $this->contact->toArray(),
+            'billingAddress' => $this->billingAddress->toArray(),
+            'shippingAddress' => $this->shippingAddress->toArray(),
         ];
 
         return array_filter($data);

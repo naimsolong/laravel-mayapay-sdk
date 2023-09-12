@@ -27,7 +27,7 @@ class PaymentFacilitator implements ToArray
             'smn' => $this->smn,
             'mci' => $this->mci,
             'mpc' => $this->mpc,
-            'mpc' => $this->mco,
+            'mco' => $this->mco,
             'mst' => $this->mst,
             'postalCode' => $this->postalCode,
             'contactNo' => $this->contactNo,
