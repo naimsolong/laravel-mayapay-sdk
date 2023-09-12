@@ -27,6 +27,8 @@ class TestCase extends Orchestra
     public function getEnvironmentSetUp($app)
     {
         config()->set('database.default', 'testing');
+        config()->set('mayapay-sdk.key.public', 'pk-AQisJAhedEV83LZGzIYn8TTxt2S6TGX8pthAMNfBmnG');
+        config()->set('mayapay-sdk.key.secret', 'sk-kgXnsLjFfTud73y3hYczHG200XONLCAU47Y1ZfFgwAf');
 
         /*
         $migration = include __DIR__.'/../database/migrations/create_laravel-mayapay-sdk_table.php.stub';
