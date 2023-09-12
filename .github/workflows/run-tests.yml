@@ -41,7 +41,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" "nesbot/carbon:${{ matrix.carbon }}" --no-interaction --no-update
+          # composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" "nesbot/carbon:${{ matrix.carbon }}" --no-interaction --no-update
+          composer install --prefer-dist --no-interaction
           composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
       - name: List Installed Dependencies
@@ -51,4 +52,4 @@ jobs:
         env:
           MAYAPAY_PUBLIC_KEY: ${{ secrets.MAYAPAY_PUBLIC_KEY }}
           MAYAPAY_SECRET_KEY: ${{ secrets.MAYAPAY_SECRET_KEY }}
-        run: vendor/bin/pest
+        run: vendor/bin/pest --ci
