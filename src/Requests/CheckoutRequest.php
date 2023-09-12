@@ -9,14 +9,16 @@ use Naimsolong\MayaPay\Datas\KountBuyer;
 use Naimsolong\MayaPay\Datas\MetaData;
 use Naimsolong\MayaPay\Datas\RedirectUrl;
 use Naimsolong\MayaPay\Datas\TotalAmount;
+use Naimsolong\MayaPay\Requests\Concerns\WhichKey;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
+use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 use Saloon\Traits\Request\HasConnector;
 
-class GetServersRequest extends BaseRequest implements HasBody
+class CheckoutRequest extends Request implements HasBody
 {
-    use HasConnector, HasJsonBody;
+    use HasConnector, HasJsonBody, WhichKey;
 
     protected string $connector = MayaPayConnector::class;
 
