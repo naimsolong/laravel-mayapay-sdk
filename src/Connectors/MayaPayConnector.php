@@ -14,8 +14,8 @@ class MayaPayConnector extends Connector
     protected function defaultHeaders(): array
     {
         return [
-			'accept' => 'application/json',
-		  	'content-type' => 'application/json',
-		];
+            'accept' => 'application/json',
+            'content-type' => 'application/json',
+        ];
     }
 }

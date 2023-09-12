@@ -23,15 +23,16 @@ class GetServersRequest extends BaseRequest implements HasBody
     protected Method $method = Method::GET;
 
     public function __construct(
-        protected $use_public_key = true,
-        
+        protected $use_public_key,
+
         protected TotalAmount $totalAmount,
         protected null|BasicBuyer|KountBuyer $buyer = null,
-        protected null|Items $items = null,
-        protected null|RedirectUrl $redirectUrl = null,
+        protected ?Items $items,
+        protected ?RedirectUrl $redirectUrl,
         protected string $requestReferenceNumber,
-        protected null|MetaData $metaData = null,
-    ){}
+        protected ?MetaData $metaData = null,
+    ) {
+    }
 
     public function resolveEndpoint(): string
     {

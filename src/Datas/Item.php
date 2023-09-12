@@ -4,15 +4,17 @@ namespace Naimsolong\MayaPay\Datas;
 
 use Naimsolong\MayaPay\Datas\Interfaces\ToArray;
 
-class Item implements ToArray {
+class Item implements ToArray
+{
     public function __construct(
         protected string $name,
-        protected null|int $quantity = null,
-        protected null|string $code = null,
-        protected null|string $description = null,
-        protected null|ItemAmount $amount = null,
+        protected ?int $quantity,
+        protected ?string $code,
+        protected ?string $description,
+        protected ?ItemAmount $amount,
         protected ItemTotalAmount $totalAmount,
-    ){}
+    ) {
+    }
 
     public function toArray()
     {

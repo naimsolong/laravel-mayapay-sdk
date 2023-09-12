@@ -2,6 +2,7 @@
 
 namespace Naimsolong\MayaPay\Datas\Interfaces;
 
-interface ToArray {
+interface ToArray
+{
     public function toArray();
 }
