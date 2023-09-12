@@ -2,9 +2,9 @@
 
 namespace Naimsolong\MayaPay;
 
+use Naimsolong\MayaPay\Commands\MayaPayCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Naimsolong\MayaPay\Commands\MayaPayCommand;
 
 class MayaPayServiceProvider extends PackageServiceProvider
 {
