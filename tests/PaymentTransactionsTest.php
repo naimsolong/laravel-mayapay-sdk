@@ -40,7 +40,7 @@ test('RetrieveViaIDRequest can return success response', function () {
     );
 
     $response = $request->send();
-    
+
     expect($response->ok())->toBeTrue();
 
     $data = $response->json();
@@ -64,12 +64,12 @@ test('RetrieveViaIDRequest can return success response', function () {
         'createdAt',
         'updatedAt',
         'requestReferenceNumber',
-      
+
     ]);
 });
 
 test('RetrieveViaRRNRequest can return success response', function () {
-    $reference_number = 'TEST'.rand(999,888).'-'.(rand(10,99)*3);
+    $reference_number = 'TEST'.rand(999, 888).'-'.(rand(10, 99) * 3);
 
     $request = new CheckoutRequest(
         totalAmount: new TotalAmount(value: 80, currency: 'PHP'),
@@ -85,7 +85,7 @@ test('RetrieveViaRRNRequest can return success response', function () {
     );
 
     $response = $request->send();
-    
+
     expect($response->ok())->toBeTrue();
 
     $data = $response->json();
@@ -104,7 +104,6 @@ test('RetrieveViaRRNRequest can return success response', function () {
         'updatedAt',
         'requestReferenceNumber',
     ]);
-    
 
     $request = new RetrieveViaRRNRequest(
         rrn: 'TEST123',
@@ -116,10 +115,10 @@ test('RetrieveViaRRNRequest can return success response', function () {
     expect($response->ok())->toBeTrue();
     expect(count($data) > 0)->toBeTrue();
 
-    $filtered_data = array_values(array_filter($data, function($item) {
+    $filtered_data = array_values(array_filter($data, function ($item) {
         return $item['status'] == 'PAYMENT_SUCCESS';
     }));
-    
+
     expect($filtered_data[0])->toHaveKeys([
         'id',
         'isPaid',
@@ -143,7 +142,7 @@ test('RetrieveViaRRNRequest can return success response', function () {
                 'first6',
                 'masked',
                 'issuer',
-            ]
+            ],
         ],
         'receipt' => [
             'transactionId',
@@ -158,15 +157,15 @@ test('RetrieveViaRRNRequest can return success response', function () {
 });
 
 test('RetrieveStatusRequest can return success response', function () {
-    $reference_number = 'TEST'.rand(999,888).'-'.(rand(10,99)*3);
-    
+    $reference_number = 'TEST'.rand(999, 888).'-'.(rand(10, 99) * 3);
+
     $request = new CheckoutRequest(
         totalAmount: new TotalAmount(value: 80, currency: 'PHP'),
         requestReferenceNumber: $reference_number,
     );
 
     $response = $request->send();
-    
+
     expect($response->ok())->toBeTrue();
 
     $data = $response->json();
@@ -185,15 +184,15 @@ test('RetrieveStatusRequest can return success response', function () {
 })->skip(true, 'Cannot make request, later check');
 
 test('CancelRequest can return success response', function () {
-    $reference_number = 'TEST'.rand(999,888).'-'.(rand(10,99)*3);
-    
+    $reference_number = 'TEST'.rand(999, 888).'-'.(rand(10, 99) * 3);
+
     $request = new CheckoutRequest(
         totalAmount: new TotalAmount(value: 80, currency: 'PHP'),
         requestReferenceNumber: $reference_number,
     );
 
     $response = $request->send();
-    
+
     expect($response->ok())->toBeTrue();
 
     $data = $response->json();
@@ -228,7 +227,7 @@ test('CancelRequest can return success response', function () {
                 'first6',
                 'masked',
                 'issuer',
-            ]
+            ],
         ],
         'receipt' => [
             'transactionId',
