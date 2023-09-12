@@ -22,18 +22,17 @@ class CheckoutRequest extends Request implements HasBody
 
     protected string $connector = MayaPayConnector::class;
 
-    protected Method $method = Method::GET;
+    protected Method $method = Method::POST;
 
     public function __construct(
-        protected $use_public_key,
-
         protected TotalAmount $totalAmount,
-        protected null|BasicBuyer|KountBuyer $buyer = null,
-        protected ?Items $items,
-        protected ?RedirectUrl $redirectUrl,
         protected string $requestReferenceNumber,
-        protected ?MetaData $metaData = null,
+        protected null|BasicBuyer|KountBuyer $buyer = null,
+        protected null|Items $items = null,
+        protected null|RedirectUrl $redirectUrl = null,
+        protected null|MetaData $metaData = null,
     ) {
+        $this->usePublicKey();
     }
 
     public function resolveEndpoint(): string
@@ -51,7 +50,7 @@ class CheckoutRequest extends Request implements HasBody
             'requestReferenceNumber' => $this->requestReferenceNumber,
             'metaData' => $this->metaData?->toArray(),
         ];
-
-        return array_values(array_filter(array_map('array_filter', $body)));
+        
+        return array_filter($body);
     }
 }
