@@ -25,10 +25,10 @@ it('can return success response', function () {
     );
 
     $response = $request->send();
-    
+
     expect($response->ok())->toBeTrue();
     expect($response->json())->toHaveKeys([
-        'checkoutId', 'redirectUrl'
+        'checkoutId', 'redirectUrl',
     ]);
 });
 
@@ -38,15 +38,15 @@ it('can pass with array of items', function () {
         requestReferenceNumber: 'TEST123',
         items: new Items([
             new Item(name: 'Item #1', code: 'ITEM#1', quantity: 2, description: 'Ze description #1', amount: new ItemAmount(value: 30, details: new AmountDetails(subtotal: 27, tax: 3)), totalAmount: new ItemTotalAmount(value: 60)),
-            new Item(name: 'Item #2', code: 'ITEM#2', quantity: 4, description: 'Ze description #2', amount: new ItemAmount(value: 10, details: new AmountDetails(subtotal: 9, tax: 1)), totalAmount: new ItemTotalAmount(value: 40))
+            new Item(name: 'Item #2', code: 'ITEM#2', quantity: 4, description: 'Ze description #2', amount: new ItemAmount(value: 10, details: new AmountDetails(subtotal: 9, tax: 1)), totalAmount: new ItemTotalAmount(value: 40)),
         ])
     );
 
     $response = $request->send();
-    
+
     expect($response->ok())->toBeTrue();
     expect($response->json())->toHaveKeys([
-        'checkoutId', 'redirectUrl'
+        'checkoutId', 'redirectUrl',
     ]);
 });
 
@@ -68,12 +68,12 @@ it('can pass with buyer infos', function () {
     );
 
     $response = $request->send();
-    
+
     expect($response->ok())->toBeTrue();
     expect($response->json())->toHaveKeys([
-        'checkoutId', 'redirectUrl'
+        'checkoutId', 'redirectUrl',
     ]);
-    
+
     $request = new CheckoutRequest(
         totalAmount: new TotalAmount(value: 100, currency: 'PHP'),
         requestReferenceNumber: 'TEST123',
@@ -91,10 +91,10 @@ it('can pass with buyer infos', function () {
     );
 
     $response = $request->send();
-    
+
     expect($response->ok())->toBeTrue();
     expect($response->json())->toHaveKeys([
-        'checkoutId', 'redirectUrl'
+        'checkoutId', 'redirectUrl',
     ]);
 });
 
@@ -110,10 +110,10 @@ it('can return with redirectUrl', function () {
     );
 
     $response = $request->send();
-    
+
     expect($response->ok())->toBeTrue();
     expect($response->json())->toHaveKeys([
-        'checkoutId', 'redirectUrl'
+        'checkoutId', 'redirectUrl',
     ]);
 });
 
@@ -131,9 +131,9 @@ it('can return with metaData', function () {
     );
 
     $response = $request->send();
-    
+
     expect($response->ok())->toBeTrue();
     expect($response->json())->toHaveKeys([
-        'checkoutId', 'redirectUrl'
+        'checkoutId', 'redirectUrl',
     ]);
 });

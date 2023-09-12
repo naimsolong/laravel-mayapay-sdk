@@ -24,7 +24,7 @@ class AmountDetails implements ToArray
             'shippingFee' => $this->shippingFee,
             'tax' => $this->tax,
         ];
-        
+
         return array_filter($data);
     }
 }

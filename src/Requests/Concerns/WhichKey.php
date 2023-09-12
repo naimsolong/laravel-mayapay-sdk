@@ -2,7 +2,8 @@
 
 namespace Naimsolong\MayaPay\Requests\Concerns;
 
-trait WhichKey {
+trait WhichKey
+{
     protected $use_public_key = true;
 
     public function usePublicKey(): void
@@ -14,15 +15,15 @@ trait WhichKey {
     {
         $this->use_public_key = false;
     }
-    
+
     protected function defaultHeaders(): array
     {
         $type = $this->use_public_key ? 'public' : 'secret';
-		
+
         $key = config('mayapay-sdk.key.'.$type);
-        
+
         return [
-			'authorization' => 'Basic '.base64_encode($key.":"),
+            'authorization' => 'Basic '.base64_encode($key.':'),
         ];
     }
 }

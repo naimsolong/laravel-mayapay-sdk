@@ -18,7 +18,7 @@ class ItemTotalAmount implements ToArray
             'value' => $this->value,
             'details' => $this->details?->toArray(),
         ];
-        
+
         return array_filter($data);
     }
 }

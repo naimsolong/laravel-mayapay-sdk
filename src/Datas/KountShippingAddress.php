@@ -8,18 +8,19 @@ class KountShippingAddress implements ToArray
 {
     public function __construct(
         protected string $countryCode,
-        protected null|string $line1 = null,
-        protected null|string $line2 = null,
-        protected null|string $city = null,
-        protected null|string $state = null,
-        protected null|string $zipCode = null,
-        protected null|string $firstName = null,
-        protected null|string $middleName = null,
-        protected null|string $lastName = null,
-        protected null|string $phone = null,
-        protected null|string $email = null,
-        protected null|string $shippingType = null,
-    ){}
+        protected ?string $line1 = null,
+        protected ?string $line2 = null,
+        protected ?string $city = null,
+        protected ?string $state = null,
+        protected ?string $zipCode = null,
+        protected ?string $firstName = null,
+        protected ?string $middleName = null,
+        protected ?string $lastName = null,
+        protected ?string $phone = null,
+        protected ?string $email = null,
+        protected ?string $shippingType = null,
+    ) {
+    }
 
     public function toArray()
     {
@@ -37,7 +38,7 @@ class KountShippingAddress implements ToArray
             'email' => $this->email,
             'shippingType' => $this->shippingType,
         ];
-        
+
         return array_filter($data);
     }
 }

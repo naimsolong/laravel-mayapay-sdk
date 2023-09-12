@@ -4,7 +4,8 @@ namespace Naimsolong\MayaPay\Datas;
 
 use Naimsolong\MayaPay\Datas\Interfaces\ToArray;
 
-class BasicBillingAddress implements ToArray {
+class BasicBillingAddress implements ToArray
+{
     public function __construct(
         protected ?string $line1 = null,
         protected ?string $line2 = null,
@@ -25,7 +26,7 @@ class BasicBillingAddress implements ToArray {
             'zipCode' => $this->zipCode,
             'countryCode' => $this->countryCode,
         ];
-        
+
         return array_filter($data);
     }
 }

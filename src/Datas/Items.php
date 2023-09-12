@@ -15,9 +15,10 @@ class Items implements ToArray
     {
         $data = [];
 
-        foreach($this->items as $item)
+        foreach ($this->items as $item) {
             array_push($data, $item->toArray());
-        
+        }
+
         return $data;
     }
 }

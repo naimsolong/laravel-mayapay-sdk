@@ -28,9 +28,9 @@ class CheckoutRequest extends Request implements HasBody
         protected TotalAmount $totalAmount,
         protected string $requestReferenceNumber,
         protected null|BasicBuyer|KountBuyer $buyer = null,
-        protected null|Items $items = null,
-        protected null|RedirectUrl $redirectUrl = null,
-        protected null|MetaData $metaData = null,
+        protected ?Items $items = null,
+        protected ?RedirectUrl $redirectUrl = null,
+        protected ?MetaData $metaData = null,
     ) {
         $this->usePublicKey();
     }
@@ -50,7 +50,7 @@ class CheckoutRequest extends Request implements HasBody
             'requestReferenceNumber' => $this->requestReferenceNumber,
             'metaData' => $this->metaData?->toArray(),
         ];
-        
+
         return array_filter($body);
     }
 }

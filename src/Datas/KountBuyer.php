@@ -7,16 +7,17 @@ use Naimsolong\MayaPay\Datas\Interfaces\ToArray;
 class KountBuyer implements ToArray
 {
     public function __construct(
-        protected string $firstName ,
+        protected string $firstName,
         protected string $lastName,
         protected ContactBuyer $contact,
         protected BasicBillingAddress|KountBillingAddress $billingAddress,
         protected BasicShippingAddress|KountShippingAddress $shippingAddress,
-        protected null|string $middleName = null,
-        protected null|string $birthday = null,
-        protected null|string $customerSince = null,
-        protected null|string $sex = null,
-    ){}
+        protected ?string $middleName = null,
+        protected ?string $birthday = null,
+        protected ?string $customerSince = null,
+        protected ?string $sex = null,
+    ) {
+    }
 
     public function toArray()
     {
@@ -31,7 +32,7 @@ class KountBuyer implements ToArray
             'billingAddress' => $this->billingAddress?->toArray(),
             'shippingAddress' => $this->shippingAddress?->toArray(),
         ];
-        
+
         return array_filter($data);
     }
 }
