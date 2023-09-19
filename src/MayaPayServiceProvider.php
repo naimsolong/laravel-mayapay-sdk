@@ -17,7 +17,6 @@ class MayaPayServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-mayapay-sdk')
-            ->hasConfigFile()
-            ->hasCommand(MayaPayCommand::class);
+            ->hasConfigFile();
     }
 }
