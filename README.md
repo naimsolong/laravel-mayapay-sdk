@@ -47,7 +47,7 @@ return [
 
 ## Usage
 
-// TODO: Create doc using gitbook
+You may refer to this [documentation](https://naimsolong.gitbook.io/laravel-mayapay-sdk/).
 
 ## Testing
 
