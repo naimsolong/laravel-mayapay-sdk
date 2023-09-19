@@ -17,6 +17,7 @@
     ],
     "require": {
         "php": "^8.1",
+        "archtechx/enums": "^0.3.2",
         "illuminate/contracts": "^10.0",
         "saloonphp/saloon": "^2.0",
         "spatie/laravel-package-tools": "^1.14.0"
