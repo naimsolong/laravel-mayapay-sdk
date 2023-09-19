@@ -2,7 +2,6 @@
 
 namespace Naimsolong\MayaPay;
 
-use Naimsolong\MayaPay\Commands\MayaPayCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -17,7 +16,6 @@ class MayaPayServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-mayapay-sdk')
-            ->hasConfigFile()
-            ->hasCommand(MayaPayCommand::class);
+            ->hasConfigFile();
     }
 }
